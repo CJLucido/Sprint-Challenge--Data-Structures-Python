@@ -51,23 +51,30 @@ class LinkedList:
             return
         else:
             next_node_to_switch_places = node.get_next()
-
-            if not next_node_to_switch_places:
-                return
-            else:
-                new_prev = next_node_to_switch_places.get_next()
+            # if not next_node_to_switch_places:
+            #     return
+            # else:
+            #     new_prev = next_node_to_switch_places.get_next()
 
             if prev == None:
                 node.set_next(None)
+                self.add_to_head(node.value)
                 
             else:
                 node.set_next(prev)
+                self.add_to_head(node.value)
             
 
-            if not new_prev:
-                return
+            if not next_node_to_switch_places:
+                node.set_next(prev)
+                self.add_to_head(node.value)
             else:
-                self.reverse_list(next_node_to_switch_places, new_prev)      
+                new_prev = next_node_to_switch_places.get_next()
+                if new_prev == None:
+                    node.set_next(node)
+                    self.add_to_head(prev.value)  
+                else:                  
+                    self.reverse_list(next_node_to_switch_places, new_prev)      
             
 
 
