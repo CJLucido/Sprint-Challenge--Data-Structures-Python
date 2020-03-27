@@ -51,7 +51,7 @@ class LinkedList:
             return
         else:
             next_node_to_switch_places = node.get_next()
-            print(next_node_to_switch_places.value)
+
             if not next_node_to_switch_places:
                 return
             else:
